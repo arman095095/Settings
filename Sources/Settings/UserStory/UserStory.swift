@@ -12,7 +12,7 @@ import Managers
 import AlertManager
 
 public protocol SettingsModuleProtocol: AnyObject {
-    func rootModule() -> ModuleProtocol
+    func rootModule() -> SettingsModule
 }
 
 public final class SettingsUserStory {
@@ -26,7 +26,7 @@ public final class SettingsUserStory {
 }
 
 extension SettingsUserStory: SettingsModuleProtocol {
-    public func rootModule() -> ModuleProtocol {
+    public func rootModule() -> SettingsModule {
         let module = RootModuleWrapperAssembly.makeModule(routeMap: self)
         outputWrapper = module.input as? RootModuleWrapper
         return module
@@ -40,7 +40,7 @@ extension SettingsUserStory: RouteMapPrivate {
               let alertManager = safeResolver.resolve(AlertManagerProtocol.self) else { fatalError(ErrorMessage.dependency.localizedDescription) }
         let module = BlackListAssembly.makeModule(authManager: authManager,
                                                   alertManager: alertManager)
-        module._output = outputWrapper
+        module.output = outputWrapper
         return module
     }
     
@@ -51,7 +51,7 @@ extension SettingsUserStory: RouteMapPrivate {
         let module = AccountSettingsAssembly.makeModule(alertManager: alertManager,
                                                         authManager: authManager,
                                                         routeMap: self)
-        module._output = outputWrapper
+        module.output = outputWrapper
         return module
     }
 }

@@ -35,7 +35,7 @@ extension AccountSettingsRouter: AccountSettingsRouterInput {
     
     func openBlackListModule() {
         let module = routeMap.blackListModule()
-        self.push(module)
+        self.push(module.view)
     }
 
     func openAttentionToRemove() {
@@ -52,10 +52,10 @@ extension AccountSettingsRouter: AccountSettingsRouterInput {
 }
 
 private extension AccountSettingsRouter {
-    func push(_ module: ModuleProtocol) {
+    func push(_ view: UIViewController) {
         let transition = PushTransition()
         transition.source = transitionHandler
-        transition.destination = module.view
+        transition.destination = view
         transition.perform(nil)
     }
 }
