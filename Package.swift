@@ -18,6 +18,8 @@ let package = Package(
         .package(url: "https://github.com/arman095095/Module.git", branch: "develop"),
         .package(url: "https://github.com/arman095095/DesignSystem.git", branch: "develop"),
         .package(url: "https://github.com/arman095095/AlertManager.git", branch: "develop"),
+        .package(url: "https://github.com/arman095095/Account.git", branch: "develop"),
+        .package(url: "https://github.com/arman095095/Profile.git", branch: "develop")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -28,6 +30,8 @@ let package = Package(
                            .product(name: "Managers", package: "Managers"),
                            .product(name: "DesignSystem", package: "DesignSystem"),
                            .product(name: "AlertManager", package: "AlertManager"),
-                           .product(name: "Swinject", package: "Swinject")]),
+                           .product(name: "Swinject", package: "Swinject"),
+                           .product(name: "Account", package: "Account"),
+                           .product(name: "Profile", package: "Profile")]),
     ]
 )

@@ -12,7 +12,7 @@ import Managers
 import AlertManager
 
 protocol BlackListModuleOutput: AnyObject {
-    func openProfileModule(profile: ProfileModelProtocol)
+    
 }
 
 protocol BlackListModuleInput: AnyObject {
@@ -68,7 +68,7 @@ extension BlackListPresenter: BlackListViewOutput {
     
     func select(at indexPath: IndexPath) {
         guard let profile = profiles?[indexPath.row] else { return }
-        output?.openProfileModule(profile: profile)
+        router.openProfileModule(profile: profile)
     }
     
     func profile(at indexPath: IndexPath) -> ListCellViewModelProtocol? {

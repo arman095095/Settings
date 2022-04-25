@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "account",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arman095095/Account.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "973493aecd05ea308ae0e4371a7ee63be0b9f634"
+      }
+    },
+    {
       "identity" : "alertmanager",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/arman095095/AlertManager.git",
@@ -105,7 +114,7 @@
       "location" : "https://github.com/arman095095/Managers.git",
       "state" : {
         "branch" : "develop",
-        "revision" : "f71be1821f72854fe2615c64a3c9007970a2af64"
+        "revision" : "b89d6d1b351716bf2ec77ec55973b25adb4caa92"
       }
     },
     {
@@ -136,6 +145,15 @@
       }
     },
     {
+      "identity" : "profile",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arman095095/Profile.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "a9a235ec9613dc07806eb9718d3f6b98dbf720e9"
+      }
+    },
+    {
       "identity" : "promises",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",
@@ -154,12 +172,30 @@
       }
     },
     {
+      "identity" : "selection",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arman095095/Selection.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "8c2f7502e6efac4bdfb9e1dec1613f2d9b94cdc4"
+      }
+    },
+    {
       "identity" : "swift-protobuf",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
         "revision" : "e1499bc69b9040b29184f7f2996f7bab467c1639",
         "version" : "1.19.0"
+      }
+    },
+    {
+      "identity" : "swiftdate",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/malcommac/SwiftDate.git",
+      "state" : {
+        "revision" : "ed308a5afb97a3874300b761dad6e9966269e3e7",
+        "version" : "5.1.0"
       }
     },
     {
@@ -178,6 +214,15 @@
       "state" : {
         "revision" : "f10b6e9ebff440f985c43008f7c2d097639fcb81",
         "version" : "2.8.1"
+      }
+    },
+    {
+      "identity" : "utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/arman095095/Utils.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "aa710df99ecc073f48fa2463c674cab8a24cf441"
       }
     }
   ],

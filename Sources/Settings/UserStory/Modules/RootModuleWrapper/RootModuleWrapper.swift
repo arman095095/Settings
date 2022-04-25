@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Managers
+import Account
 
 public protocol SettingsModuleOutput: AnyObject {
     func openUnauthorizedZone()
@@ -28,7 +29,7 @@ final class RootModuleWrapper {
     }
     
     func view() -> UIViewController {
-        let module = routeMap.accountSettinsModule()
+        let module = routeMap.accountSettingsModule()
         module.output = self
         return module.view
     }
@@ -50,6 +51,4 @@ extension RootModuleWrapper: BlackListModuleOutput {
     }
 }
 
-extension RootModuleWrapper: SettingsModuleInput {
-    
-}
+extension RootModuleWrapper: SettingsModuleInput { }

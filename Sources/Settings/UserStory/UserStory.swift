@@ -10,6 +10,8 @@ import Module
 import Swinject
 import Managers
 import AlertManager
+import Account
+import Profile
 
 public protocol SettingsModuleProtocol: AnyObject {
     func rootModule() -> SettingsModule
@@ -34,17 +36,29 @@ extension SettingsUserStory: SettingsModuleProtocol {
 }
 
 extension SettingsUserStory: RouteMapPrivate {
+
+    func profileModule(model: ProfileModelProtocol) -> ProfileModule {
+        let module = ProfileUserStory(container: container).friendAccountModule(profile: model)
+        return module
+    }
+
+    func editProfileModule() -> AccountModule {
+        let module = AccountUserStory(container: container).editAccountModule()
+        return module
+    }
+    
     func blackListModule() -> BlackListModule {
         let safeResolver = container.synchronize()
         guard let authManager = safeResolver.resolve(AuthManagerProtocol.self),
               let alertManager = safeResolver.resolve(AlertManagerProtocol.self) else { fatalError(ErrorMessage.dependency.localizedDescription) }
         let module = BlackListAssembly.makeModule(authManager: authManager,
-                                                  alertManager: alertManager)
+                                                  alertManager: alertManager,
+                                                  routeMap: self)
         module.output = outputWrapper
         return module
     }
     
-    func accountSettinsModule() -> AccountSettingsModule {
+    func accountSettingsModule() -> AccountSettingsModule {
         let safeResolver = container.synchronize()
         guard let authManager = safeResolver.resolve(AuthManagerProtocol.self),
               let alertManager = safeResolver.resolve(AlertManagerProtocol.self) else { fatalError(ErrorMessage.dependency.localizedDescription) }

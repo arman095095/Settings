@@ -9,6 +9,7 @@
 import UIKit
 import AlertManager
 import Module
+import Account
 
 protocol AccountSettingsRouterOutput: AnyObject {
     func acceptToRemove()
@@ -19,6 +20,7 @@ protocol AccountSettingsRouterInput: AnyObject {
     func openBlackListModule()
     func openAttentionToRemove()
     func openAttentionToExit()
+    func openEditProfileModule()
 }
 
 final class AccountSettingsRouter {
@@ -32,6 +34,10 @@ final class AccountSettingsRouter {
 }
 
 extension AccountSettingsRouter: AccountSettingsRouterInput {
+    func openEditProfileModule() {
+        let module = routeMap.editProfileModule()
+        self.push(module.view)
+    }
     
     func openBlackListModule() {
         let module = routeMap.blackListModule()

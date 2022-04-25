@@ -10,13 +10,21 @@ import UIKit
 import Managers
 
 protocol BlackListRouterInput: AnyObject {
-    
+    func openProfileModule(profile: ProfileModelProtocol)
 }
 
 final class BlackListRouter {
     weak var transitionHandler: UIViewController?
+    private let routeMap: RouteMapPrivate
+    
+    init(routeMap: RouteMapPrivate) {
+        self.routeMap = routeMap
+    }
 }
 
 extension BlackListRouter: BlackListRouterInput {
-    
+    func openProfileModule(profile: ProfileModelProtocol) {
+        let module = routeMap.profileModule(model: profile)
+        transitionHandler?.navigationController?.pushViewController(module.view, animated: true)
+    }
 }

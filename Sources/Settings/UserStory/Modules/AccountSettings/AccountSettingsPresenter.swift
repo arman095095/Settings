@@ -20,7 +20,6 @@ protocol AccountSettingsStringFactoryProtocol {
 
 protocol AccountSettingsModuleOutput: AnyObject {
     func logout()
-    func editProfile()
 }
 
 protocol AccountSettingsModuleInput: AnyObject {
@@ -62,7 +61,7 @@ extension AccountSettingsPresenter: AccountSettingsViewOutput {
     }
     
     func editProfileAction() {
-        output?.editProfile()
+        router.openEditProfileModule()
     }
     
     func blackListAction() {
