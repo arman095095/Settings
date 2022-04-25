@@ -12,8 +12,6 @@ import Account
 
 public protocol SettingsModuleOutput: AnyObject {
     func openUnauthorizedZone()
-    func openEditAccount()
-    func openProfileModule(profile: ProfileModelProtocol)
 }
 
 public protocol SettingsModuleInput: AnyObject {
@@ -38,16 +36,6 @@ final class RootModuleWrapper {
 extension RootModuleWrapper: AccountSettingsModuleOutput {
     func logout() {
         output?.openUnauthorizedZone()
-    }
-    
-    func editProfile() {
-        output?.openEditAccount()
-    }
-}
-
-extension RootModuleWrapper: BlackListModuleOutput {
-    func openProfileModule(profile: ProfileModelProtocol) {
-        output?.openProfileModule(profile: profile)
     }
 }
 

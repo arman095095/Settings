@@ -54,7 +54,6 @@ extension SettingsUserStory: RouteMapPrivate {
         let module = BlackListAssembly.makeModule(authManager: authManager,
                                                   alertManager: alertManager,
                                                   routeMap: self)
-        module.output = outputWrapper
         return module
     }
     
