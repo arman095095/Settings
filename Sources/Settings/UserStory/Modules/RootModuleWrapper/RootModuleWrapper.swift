@@ -15,7 +15,7 @@ public protocol SettingsModuleOutput: AnyObject {
     func openProfileModule(profile: ProfileModelProtocol)
 }
 
-protocol SettingsModuleInput {
+public protocol SettingsModuleInput: AnyObject {
     
 }
 

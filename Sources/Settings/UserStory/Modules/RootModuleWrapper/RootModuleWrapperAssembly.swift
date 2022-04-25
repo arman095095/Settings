@@ -8,7 +8,7 @@
 import Foundation
 import Module
 
-typealias SettingsModule = Module<SettingsModuleInput, SettingsModuleOutput>
+public typealias SettingsModule = Module<SettingsModuleInput, SettingsModuleOutput>
 
 enum RootModuleWrapperAssembly {
     static func makeModule(routeMap: RouteMapPrivate) -> SettingsModule {
