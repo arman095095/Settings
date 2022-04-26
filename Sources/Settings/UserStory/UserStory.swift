@@ -49,9 +49,9 @@ extension SettingsUserStory: RouteMapPrivate {
     
     func blackListModule() -> BlackListModule {
         let safeResolver = container.synchronize()
-        guard let authManager = safeResolver.resolve(AuthManagerProtocol.self),
+        guard let accountManager = safeResolver.resolve(AccountManagerProtocol.self),
               let alertManager = safeResolver.resolve(AlertManagerProtocol.self) else { fatalError(ErrorMessage.dependency.localizedDescription) }
-        let module = BlackListAssembly.makeModule(authManager: authManager,
+        let module = BlackListAssembly.makeModule(accountManager: accountManager,
                                                   alertManager: alertManager,
                                                   routeMap: self)
         return module
@@ -59,10 +59,10 @@ extension SettingsUserStory: RouteMapPrivate {
     
     func accountSettingsModule() -> AccountSettingsModule {
         let safeResolver = container.synchronize()
-        guard let authManager = safeResolver.resolve(AuthManagerProtocol.self),
+        guard let accountManager = safeResolver.resolve(AccountManagerProtocol.self),
               let alertManager = safeResolver.resolve(AlertManagerProtocol.self) else { fatalError(ErrorMessage.dependency.localizedDescription) }
         let module = AccountSettingsAssembly.makeModule(alertManager: alertManager,
-                                                        authManager: authManager,
+                                                        accountManager: accountManager,
                                                         routeMap: self)
         module.output = outputWrapper
         return module

@@ -15,11 +15,11 @@ typealias AccountSettingsModule = Module<AccountSettingsModuleInput, AccountSett
 
 enum AccountSettingsAssembly {
     static func makeModule(alertManager: AlertManagerProtocol,
-                           authManager: AuthManagerProtocol,
+                           accountManager: AccountManagerProtocol,
                            routeMap: RouteMapPrivate) -> AccountSettingsModule {
         let view = AccountSettingsViewController()
         let router = AccountSettingsRouter(routeMap: routeMap)
-        let interactor = AccountSettingsInteractor(authManager: authManager)
+        let interactor = AccountSettingsInteractor(accountManager: accountManager)
         let stringFactory = SettingsStringFactory()
         let presenter = AccountSettingsPresenter(router: router,
                                                  interactor: interactor,

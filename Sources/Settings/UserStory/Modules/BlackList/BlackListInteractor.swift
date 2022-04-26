@@ -23,17 +23,17 @@ protocol BlackListInteractorOutput: AnyObject {
 final class BlackListInteractor {
     
     weak var output: BlackListInteractorOutput?
-    private let authManager: AuthManagerProtocol
+    private let accountManager: AccountManagerProtocol
     
-    init(authManager: AuthManagerProtocol) {
-        self.authManager = authManager
+    init(accountManager: AccountManagerProtocol) {
+        self.accountManager = accountManager
     }
 }
 
 extension BlackListInteractor: BlackListInteractorInput {
 
     func unblock(profile: ProfileModelProtocol) {
-        authManager.unblockProfile(profile.id) { [weak self] result in
+        accountManager.unblockProfile(profile.id) { [weak self] result in
             switch result {
             case .success:
                 break
@@ -44,7 +44,7 @@ extension BlackListInteractor: BlackListInteractorInput {
     }
     
     func getBlockedProfiles() {
-        authManager.blockedProfiles { [weak self] result in
+        accountManager.blockedProfiles { [weak self] result in
             switch result {
             case .success(let profiles):
                 self?.output?.successGetBlockedProfiles(profiles: profiles)

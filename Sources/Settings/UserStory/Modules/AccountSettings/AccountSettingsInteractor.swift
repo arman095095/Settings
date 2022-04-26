@@ -22,17 +22,17 @@ protocol AccountSettingsInteractorOutput: AnyObject {
 final class AccountSettingsInteractor {
     
     weak var output: AccountSettingsInteractorOutput?
-    private let authManager: AuthManagerProtocol
+    private let accountManager: AccountManagerProtocol
     
-    init(authManager: AuthManagerProtocol) {
-        self.authManager = authManager
+    init(accountManager: AccountManagerProtocol) {
+        self.accountManager = accountManager
     }
 }
 
 extension AccountSettingsInteractor: AccountSettingsInteractorInput {
 
     func removeProfile() {
-        authManager.removeAccount { [weak self] result in
+        accountManager.removeAccount { [weak self] result in
             switch result {
             case .success:
                 self?.output?.successRemove()
@@ -43,6 +43,6 @@ extension AccountSettingsInteractor: AccountSettingsInteractorInput {
     }
     
     func logout() {
-        authManager.signOut()
+        accountManager.signOut()
     }
 }
