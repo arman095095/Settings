@@ -43,6 +43,7 @@ extension SettingsUserStory: RouteMapPrivate {
     }
 
     func editProfileModule() -> AccountModule {
+        AccountUserStoryAssembly.assemble(container: container)
         let module = AccountUserStory(container: container).editAccountModule()
         return module
     }
