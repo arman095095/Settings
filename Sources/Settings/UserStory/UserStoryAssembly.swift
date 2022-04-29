@@ -8,6 +8,7 @@
 import Foundation
 import Swinject
 
-public final class SettingsUserStoryAssembly {
-    public static func assemble(container: Container) { }
+public final class SettingsUserStoryAssembly: Assembly {
+    public init() { }
+    public func assemble(container: Container) { }
 }
