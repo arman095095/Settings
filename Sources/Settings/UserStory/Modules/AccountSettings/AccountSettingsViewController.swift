@@ -17,35 +17,10 @@ protocol AccountSettingsViewInput: AnyObject {
 final class AccountSettingsViewController: UIViewController {
     var output: AccountSettingsViewOutput?
     private let titleLabel = UILabel()
-    private let editInfoButton = UIButton(backgroundColor: .white,
-                                          titleColor: #colorLiteral(red: 0.4174995422, green: 0.2606979012, blue: 0.7359834313, alpha: 1),
-                                          font: UIFont.avenir19(),
-                                          shadow: true,
-                                          cornerRaduis: 4,
-                                          height: Constants.largeButtonHeight,
-                                          shadowColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
-    private let blackListButton = UIButton(backgroundColor: .white,
-                                           titleColor: #colorLiteral(red: 0.4174995422, green: 0.2606979012, blue: 0.7359834313, alpha: 1),
-                                           font: UIFont.avenir19(),
-                                           shadow: true,
-                                           cornerRaduis: 4,
-                                           height: Constants.largeButtonHeight,
-                                           shadowColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
-    private let removeProfileButton = LoadButton(backgroundColor: .white,
-                                                 titleColor: .buttonRed(),
-                                                 font: UIFont.avenir19(),
-                                                 shadow: true,
-                                                 cornerRaduis: 4,
-                                                 height: Constants.largeButtonHeight,
-                                                 activityColor: .black,
-                                                 shadowColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
-    private let exitButton = UIButton(backgroundColor: .white,
-                                      titleColor: .buttonRed(),
-                                      font: UIFont.avenir19(),
-                                      shadow: true,
-                                      cornerRaduis: 4,
-                                      height: Constants.largeButtonHeight,
-                                      shadowColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+    private let editInfoButton = ButtonsFactory.whiteSettingsButton
+    private let blackListButton = ButtonsFactory.whiteSettingsButton
+    private let removeProfileButton = ButtonsFactory.whiteLoadButton
+    private let exitButton = ButtonsFactory.whiteSettingsButton
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +37,7 @@ private extension AccountSettingsViewController {
         titleLabel.font = UIFont.avenir26()
         editInfoButton.setTitle(stringFactory.editButtonTitle, for: .normal)
         blackListButton.setTitle(stringFactory.blackListTitle, for: .normal)
-        removeProfileButton.setTitle(stringFactory.removeTitle)
+        removeProfileButton.setTitle(stringFactory.removeTitle, for: .normal)
         exitButton.setTitle(stringFactory.logoutTitle, for: .normal)
         view.backgroundColor = .systemGray6
         view.addSubview(titleLabel)
