@@ -13,7 +13,7 @@ import AlertManager
 import Account
 import Profile
 
-public protocol SettingsModuleProtocol: AnyObject {
+public protocol SettingsRouteMap: AnyObject {
     func rootModule() -> SettingsModule
 }
 
