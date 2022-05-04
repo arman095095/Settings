@@ -33,7 +33,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Settings",
-            targets: ["Settings", "SettingsRouteMap"]),
+            targets: ["Settings"]),
     ],
     dependencies: dependencies,
     targets: [
@@ -46,10 +46,7 @@ let package = Package(
                            .product(name: "DesignSystem", package: "DesignSystem"),
                            .product(name: "AlertManager", package: "AlertManager"),
                            .product(name: "Swinject", package: "Swinject"),
-                           .product(name: "ProfileRouteMap", package: "Profile"),
-                           .product(name: "AccountRouteMap", package: "Account")]),
-        .target(name: "SettingsRouteMap",
-               dependencies: [.product(name: "Module", package: "Module"),
-                              .product(name: "Managers", package: "Managers")])
+                           .product(name: "Profile", package: "Profile"),
+                           .product(name: "Account", package: "Account")])
     ]
 )
