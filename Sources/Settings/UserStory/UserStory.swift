@@ -27,7 +27,7 @@ public final class SettingsUserStory {
     }
 }
 
-extension SettingsUserStory: SettingsModuleProtocol {
+extension SettingsUserStory: SettingsRouteMap {
     public func rootModule() -> SettingsModule {
         let module = RootModuleWrapperAssembly.makeModule(routeMap: self)
         outputWrapper = module.input as? RootModuleWrapper

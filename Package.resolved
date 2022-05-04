@@ -109,15 +109,6 @@
       }
     },
     {
-      "identity" : "selection",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/arman095095/Selection.git",
-      "state" : {
-        "branch" : "develop",
-        "revision" : "d12fa0c7b6e3d84b55acdeab32bfb1be233f04a3"
-      }
-    },
-    {
       "identity" : "swift-protobuf",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
