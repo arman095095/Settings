@@ -7,8 +7,8 @@
 
 import Foundation
 import Account
-import Profile
 import Managers
+import ProfileRouteMap
 
 protocol RouteMapPrivate: AnyObject {
     func blackListModule() -> BlackListModule

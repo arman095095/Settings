@@ -11,11 +11,9 @@ import Swinject
 import Managers
 import AlertManager
 import Account
-import Profile
-
-public protocol SettingsRouteMap: AnyObject {
-    func rootModule() -> SettingsModule
-}
+import ProfileRouteMap
+import SettingsRouteMap
+import UserStoryFacade
 
 public final class SettingsUserStory {
 
@@ -38,7 +36,11 @@ extension SettingsUserStory: SettingsRouteMap {
 extension SettingsUserStory: RouteMapPrivate {
 
     func profileModule(model: ProfileModelProtocol) -> ProfileModule {
-        let module = ProfileUserStory(container: container).friendAccountModule(profile: model)
+        let safeResolver = container.synchronize()
+        guard let profileModule = safeResolver.resolve(UserStoryFacade.self)?.profileUserStory else {
+            fatalError(ErrorMessage.dependency.localizedDescription)
+        }
+        let module = profileModule.friendAccountModule(profile: model)
         return module
     }
 

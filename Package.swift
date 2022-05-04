@@ -20,7 +20,9 @@ private let localDependencies: [Package.Dependency] = [
     .package(path: "/Users/armancarhcan/Desktop/Workdir/DesignSystem"),
     .package(path: "/Users/armancarhcan/Desktop/Workdir/AlertManager"),
     .package(path: "/Users/armancarhcan/Desktop/Workdir/Account"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/Profile")
+    .package(path: "/Users/armancarhcan/Desktop/Workdir/Profile"),
+    .package(path: "/Users/armancarhcan/Desktop/Workdir/SettingsRouteMap"),
+    .package(path: "/Users/armancarhcan/Desktop/Workdir/UserStoryFacade")
 ]
 
 let isDev = true
@@ -47,6 +49,8 @@ let package = Package(
                            .product(name: "AlertManager", package: "AlertManager"),
                            .product(name: "Swinject", package: "Swinject"),
                            .product(name: "Profile", package: "Profile"),
-                           .product(name: "Account", package: "Account")])
+                           .product(name: "Account", package: "Account"),
+                           .product(name: "SettingsRouteMap", package: "SettingsRouteMap"),
+                           .product(name: "UserStoryFacade", package: "UserStoryFacade")])
     ]
 )

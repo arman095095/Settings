@@ -9,14 +9,7 @@ import Foundation
 import UIKit
 import Managers
 import Account
-
-public protocol SettingsModuleOutput: AnyObject {
-    func openUnauthorizedZone()
-}
-
-public protocol SettingsModuleInput: AnyObject {
-    
-}
+import SettingsRouteMap
 
 final class RootModuleWrapper {
     private let routeMap: RouteMapPrivate
