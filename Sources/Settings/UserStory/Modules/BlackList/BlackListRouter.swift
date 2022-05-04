@@ -8,6 +8,7 @@
 
 import UIKit
 import Managers
+import ModelInterfaces
 
 protocol BlackListRouterInput: AnyObject {
     func openProfileModule(profile: ProfileModelProtocol)

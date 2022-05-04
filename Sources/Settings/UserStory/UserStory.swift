@@ -10,10 +10,11 @@ import Module
 import Swinject
 import Managers
 import AlertManager
-import Account
+import AccountRouteMap
 import ProfileRouteMap
 import SettingsRouteMap
 import UserStoryFacade
+import ModelInterfaces
 
 public final class SettingsUserStory {
 
@@ -45,7 +46,9 @@ extension SettingsUserStory: RouteMapPrivate {
     }
 
     func editProfileModule() -> AccountModule {
-        let module = AccountUserStory(container: container).editAccountModule()
+        guard let module = container.synchronize().resolve(UserStoryFacade.self)?.accountUserStory?.editAccountModule() else {
+            fatalError(ErrorMessage.dependency.localizedDescription)
+        }
         return module
     }
     

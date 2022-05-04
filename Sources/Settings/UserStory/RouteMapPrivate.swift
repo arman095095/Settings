@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import Account
-import Managers
+import AccountRouteMap
+import ModelInterfaces
 import ProfileRouteMap
 
 protocol RouteMapPrivate: AnyObject {

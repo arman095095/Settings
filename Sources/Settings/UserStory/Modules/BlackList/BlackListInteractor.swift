@@ -8,6 +8,7 @@
 
 import UIKit
 import Managers
+import ModelInterfaces
 
 protocol BlackListInteractorInput: AnyObject {
     func getBlockedProfiles()
