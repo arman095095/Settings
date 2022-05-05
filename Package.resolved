@@ -118,15 +118,6 @@
       }
     },
     {
-      "identity" : "swiftdate",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/malcommac/SwiftDate.git",
-      "state" : {
-        "revision" : "ed308a5afb97a3874300b761dad6e9966269e3e7",
-        "version" : "5.1.0"
-      }
-    },
-    {
       "identity" : "swiftentrykit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/huri000/SwiftEntryKit.git",

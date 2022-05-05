@@ -3,30 +3,31 @@
 
 import PackageDescription
 
+var dependencies: [Package.Dependency] = [.package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")]
+
 private let remoteDependencies: [Package.Dependency] = [
-    .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
     .package(url: "https://github.com/arman095095/Managers.git", branch: "develop"),
     .package(url: "https://github.com/arman095095/Module.git", branch: "develop"),
     .package(url: "https://github.com/arman095095/DesignSystem.git", branch: "develop"),
     .package(url: "https://github.com/arman095095/AlertManager.git", branch: "develop"),
-    .package(url: "https://github.com/arman095095/Account.git", branch: "develop"),
-    .package(url: "https://github.com/arman095095/Profile.git", branch: "develop")
+    .package(url: "https://github.com/arman095095/AccountRouteMap.git", branch: "develop"),
+    .package(url: "https://github.com/arman095095/ProfileRouteMap.git", branch: "develop"),
+    .package(url: "https://github.com/arman095095/UserStoryFacade.git", branch: "develop")
 ]
 
 private let localDependencies: [Package.Dependency] = [
-    .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/Managers"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/Module"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/DesignSystem"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/AlertManager"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/Account"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/Profile"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/SettingsRouteMap"),
-    .package(path: "/Users/armancarhcan/Desktop/Workdir/UserStoryFacade")
+    .package(path: "../Managers"),
+    .package(path: "../Module"),
+    .package(path: "../DesignSystem"),
+    .package(path: "../AlertManager"),
+    .package(path: "../AccountRouteMap"),
+    .package(path: "../ProfileRouteMap"),
+    .package(path: "../SettingsRouteMap"),
+    .package(path: "../UserStoryFacade")
 ]
 
 let isDev = true
-private let dependencies = isDev ? localDependencies : remoteDependencies
+isDev ? dependencies.append(contentsOf: localDependencies) : dependencies.append(contentsOf: remoteDependencies)
 
 let package = Package(
     name: "Settings",
@@ -48,8 +49,8 @@ let package = Package(
                            .product(name: "DesignSystem", package: "DesignSystem"),
                            .product(name: "AlertManager", package: "AlertManager"),
                            .product(name: "Swinject", package: "Swinject"),
-                           .product(name: "Profile", package: "Profile"),
-                           .product(name: "Account", package: "Account"),
+                           .product(name: "ProfileRouteMap", package: "ProfileRouteMap"),
+                           .product(name: "AccountRouteMap", package: "AccountRouteMap"),
                            .product(name: "SettingsRouteMap", package: "SettingsRouteMap"),
                            .product(name: "UserStoryFacade", package: "UserStoryFacade")])
     ]

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import Managers
-import Account
+import AccountRouteMap
 import SettingsRouteMap
 
 final class RootModuleWrapper {

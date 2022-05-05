@@ -9,7 +9,7 @@
 import UIKit
 import AlertManager
 import Module
-import Account
+import AccountRouteMap
 
 protocol AccountSettingsRouterOutput: AnyObject {
     func acceptToRemove()
