@@ -7,8 +7,14 @@
 
 import Foundation
 import Swinject
+import SettingsRouteMap
+import UserStoryFacade
 
 public final class SettingsUserStoryAssembly: Assembly {
     public init() { }
-    public func assemble(container: Container) { }
+    public func assemble(container: Container) {
+        container.register(SettingsRouteMap.self) { r in
+            SettingsUserStory(container: container)
+        }
+    }
 }
