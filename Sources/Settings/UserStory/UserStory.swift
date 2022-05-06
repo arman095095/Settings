@@ -41,7 +41,7 @@ extension SettingsUserStory: RouteMapPrivate {
         guard let profileModule = safeResolver.resolve(UserStoryFacadeProtocol.self)?.profileUserStory else {
             fatalError(ErrorMessage.dependency.localizedDescription)
         }
-        let module = profileModule.friendAccountModule(profile: model)
+        let module = profileModule.someAccountModule(profile: model)
         return module
     }
 
