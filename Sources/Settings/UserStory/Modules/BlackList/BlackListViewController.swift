@@ -134,8 +134,8 @@ extension BlackListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let output = output else { return Constants.headerHeight }
-        guard output.numberOfRows != 0 else { return Constants.headerHeight }
-        return Constants.headerHeightEmpty
+        guard let output = output else { return Constants.headerHeightEmpty }
+        guard output.numberOfRows != 0 else { return Constants.headerHeightEmpty }
+        return Constants.headerHeight
     }
 }
