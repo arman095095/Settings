@@ -49,8 +49,14 @@ extension BlackListViewController: BlackListViewInput {
     
     func setLoading(on: Bool) {
         DispatchQueue.main.async {
-            on ? self.activityIndicator.startLoading() : self.activityIndicator.completeLoading(success: true)
-            self.activityIndicator.isHidden = true
+            if on {
+                self.activityIndicator.isHidden = false
+                self.activityIndicator.startLoading()
+            } else {
+                self.activityIndicator.completeLoading(success: true)
+                self.activityIndicator.isHidden = true
+                
+            }
         }
     }
     
@@ -87,7 +93,6 @@ private extension BlackListViewController {
         activityIndicator.topAnchor.constraint(equalTo: self.view.topAnchor, constant: UIScreen.main.bounds.height/2).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         activityIndicator.constraint(equalTo: CGSize(width: 40, height: 40))
-        activityIndicator.startLoading()
     }
     
     func infoLabel() -> UIView {
