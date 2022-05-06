@@ -15,12 +15,12 @@ import AlertManager
 typealias BlackListModule = Module<BlackListModuleInput, BlackListModuleOutput>
 
 enum BlackListAssembly {
-    static func makeModule(accountManager: AccountManagerProtocol,
+    static func makeModule(communicationManager: CommunicationManagerProtocol,
                            alertManager: AlertManagerProtocol,
                            routeMap: RouteMapPrivate) -> BlackListModule {
         let view = BlackListViewController()
         let router = BlackListRouter(routeMap: routeMap)
-        let interactor = BlackListInteractor(accountManager: accountManager)
+        let interactor = BlackListInteractor(communicationManager: communicationManager)
         let presenter = BlackListPresenter(router: router,
                                            interactor: interactor,
                                            alertManager: alertManager)
