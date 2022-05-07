@@ -111,6 +111,7 @@ extension BlackListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListViewCell.id,
                                                  for: indexPath) as! ListViewCell
+        cell.selectionStyle = .none
         guard let profile = output?.profile(at: indexPath) else { return cell }
         cell.config(with: profile)
         return cell
@@ -131,7 +132,6 @@ extension BlackListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output?.select(at: indexPath)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

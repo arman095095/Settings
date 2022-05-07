@@ -73,9 +73,11 @@ extension BlackListPresenter: BlackListViewOutput {
     }
     
     func profile(at indexPath: IndexPath) -> ListCellViewModelProtocol? {
-        guard let profile = profiles?[indexPath.row],
-              let url = URL(string: profile.imageUrl) else { return nil }
-        return ListCellViewModel(name: profile.userName, imageURL: url)
+        guard let profile = profiles?[indexPath.row] else { return nil }
+        let name = !profile.removed ? profile.userName : RemovedProfileConstants.name.rawValue
+        let urlString = !profile.removed ? profile.imageUrl : RemovedProfileConstants.imageURL.rawValue
+        guard let url = URL(string: urlString) else { return nil }
+        return ListCellViewModel(name: name, imageURL: url)
     }
 }
 
