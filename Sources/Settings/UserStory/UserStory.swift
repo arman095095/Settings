@@ -54,7 +54,7 @@ extension SettingsUserStory: RouteMapPrivate {
     
     func blackListModule() -> BlackListModule {
         let safeResolver = container.synchronize()
-        guard let blockingManager = safeResolver.resolve(BlockingManagerProtocol.self),
+        guard let blockingManager = safeResolver.resolve(BlockedUsersManagerProtocol.self),
               let alertManager = safeResolver.resolve(AlertManagerProtocol.self) else { fatalError(ErrorMessage.dependency.localizedDescription) }
         let module = BlackListAssembly.makeModule(blockingManager: blockingManager,
                                                   alertManager: alertManager,

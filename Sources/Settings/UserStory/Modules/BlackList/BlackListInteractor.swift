@@ -24,9 +24,9 @@ protocol BlackListInteractorOutput: AnyObject {
 final class BlackListInteractor {
     
     weak var output: BlackListInteractorOutput?
-    private let blockingManager: BlockingManagerProtocol
+    private let blockingManager: BlockedUsersManagerProtocol
     
-    init(blockingManager: BlockingManagerProtocol) {
+    init(blockingManager: BlockedUsersManagerProtocol) {
         self.blockingManager = blockingManager
     }
 }

@@ -15,7 +15,7 @@ import AlertManager
 typealias BlackListModule = Module<BlackListModuleInput, BlackListModuleOutput>
 
 enum BlackListAssembly {
-    static func makeModule(blockingManager: BlockingManagerProtocol,
+    static func makeModule(blockingManager: BlockedUsersManagerProtocol,
                            alertManager: AlertManagerProtocol,
                            routeMap: RouteMapPrivate) -> BlackListModule {
         let view = BlackListViewController()
