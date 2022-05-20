@@ -15,7 +15,7 @@ typealias AccountSettingsModule = Module<AccountSettingsModuleInput, AccountSett
 
 enum AccountSettingsAssembly {
     static func makeModule(alertManager: AlertManagerProtocol,
-                           accountManager: AccountManagerProtocol,
+                           accountManager: AccountEscapingManagerProtocol,
                            routeMap: RouteMapPrivate) -> AccountSettingsModule {
         let view = AccountSettingsViewController()
         let router = AccountSettingsRouter(routeMap: routeMap)

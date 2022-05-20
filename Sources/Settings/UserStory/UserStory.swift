@@ -64,7 +64,7 @@ extension SettingsUserStory: RouteMapPrivate {
     
     func accountSettingsModule() -> AccountSettingsModule {
         let safeResolver = container.synchronize()
-        guard let accountManager = safeResolver.resolve(AccountManagerProtocol.self),
+        guard let accountManager = safeResolver.resolve(AccountEscapingManagerProtocol.self),
               let alertManager = safeResolver.resolve(AlertManagerProtocol.self) else { fatalError(ErrorMessage.dependency.localizedDescription) }
         let module = AccountSettingsAssembly.makeModule(alertManager: alertManager,
                                                         accountManager: accountManager,

@@ -22,9 +22,9 @@ protocol AccountSettingsInteractorOutput: AnyObject {
 final class AccountSettingsInteractor {
     
     weak var output: AccountSettingsInteractorOutput?
-    private let accountManager: AccountManagerProtocol
+    private let accountManager: AccountEscapingManagerProtocol
     
-    init(accountManager: AccountManagerProtocol) {
+    init(accountManager: AccountEscapingManagerProtocol) {
         self.accountManager = accountManager
     }
 }
