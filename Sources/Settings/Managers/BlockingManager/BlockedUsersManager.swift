@@ -29,15 +29,15 @@ public protocol BlockedUsersManagerProtocol {
 
 final class BlockedUsersManager {
     private let accountID: String
-    private let accountService: AccountServiceProtocol
+    private let accountService: AccountNetworkServiceProtocol
     private let account: AccountModelProtocol
     private let cacheService: AccountCacheServiceProtocol
-    private let profileService: ProfilesServiceProtocol
+    private let profileService: ProfilesNetworkServiceProtocol
     
     init(account: AccountModelProtocol,
          accountID: String,
-         accountService: AccountServiceProtocol,
-         profileService: ProfilesServiceProtocol,
+         accountService: AccountNetworkServiceProtocol,
+         profileService: ProfilesNetworkServiceProtocol,
          cacheService: AccountCacheServiceProtocol) {
         self.account = account
         self.accountID = accountID

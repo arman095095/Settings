@@ -17,9 +17,9 @@ final class BlockedUsersManagerAssembly: Assembly {
         container.register(BlockedUsersManagerProtocol.self) { r in
             guard let accountID = r.resolve(QuickAccessManagerProtocol.self)?.userID,
                   let account = r.resolve(AccountModelProtocol.self),
-                  let accountService = r.resolve(AccountServiceProtocol.self),
+                  let accountService = r.resolve(AccountNetworkServiceProtocol.self),
                   let cacheService = r.resolve(AccountCacheServiceProtocol.self),
-                  let profileService = r.resolve(ProfilesServiceProtocol.self) else {
+                  let profileService = r.resolve(ProfilesNetworkServiceProtocol.self) else {
                 fatalError(ErrorMessage.dependency.localizedDescription)
             }
             return BlockedUsersManager(account: account,

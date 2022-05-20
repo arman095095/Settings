@@ -26,11 +26,11 @@ protocol AccountEscapingManagerProtocol {
 
 final class AccountEscapingManager {
     private let accountID: String
-    private let accountService: AccountServiceProtocol
+    private let accountService: AccountNetworkServiceProtocol
     private let quickAccessManager: QuickAccessManagerProtocol
     
     init(accountID: String,
-         accountService: AccountServiceProtocol,
+         accountService: AccountNetworkServiceProtocol,
          quickAccessManager: QuickAccessManagerProtocol) {
         self.accountID = accountID
         self.quickAccessManager = quickAccessManager

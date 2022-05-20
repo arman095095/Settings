@@ -14,7 +14,7 @@ final class AccountEscapingManagerAssembly: Assembly {
     func assemble(container: Container) {
         container.register(AccountEscapingManagerProtocol.self) { r in
             guard let quickAccessManager = r.resolve(QuickAccessManagerProtocol.self),
-                  let accountService = r.resolve(AccountServiceProtocol.self),
+                  let accountService = r.resolve(AccountNetworkServiceProtocol.self),
                   let userID = quickAccessManager.userID else {
                 fatalError(ErrorMessage.dependency.localizedDescription)
             }
