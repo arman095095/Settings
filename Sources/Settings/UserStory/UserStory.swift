@@ -38,7 +38,7 @@ extension SettingsUserStory: RouteMapPrivate {
 
     func profileModule(model: ProfileModelProtocol) -> ProfileModule {
         let safeResolver = container.synchronize()
-        guard let profileModule = safeResolver.resolve(UserStoryFacadeProtocol.self)?.profileUserStory else {
+        guard let profileModule = safeResolver.resolve(UserStoryFacadeProtocol.self)?.profile else {
             fatalError(ErrorMessage.dependency.localizedDescription)
         }
         let module = profileModule.someAccountModule(profile: model)
@@ -46,7 +46,7 @@ extension SettingsUserStory: RouteMapPrivate {
     }
 
     func editProfileModule() -> AccountModule {
-        guard let module = container.synchronize().resolve(UserStoryFacadeProtocol.self)?.accountUserStory?.editAccountModule() else {
+        guard let module = container.synchronize().resolve(UserStoryFacadeProtocol.self)?.account?.editAccountModule() else {
             fatalError(ErrorMessage.dependency.localizedDescription)
         }
         return module
