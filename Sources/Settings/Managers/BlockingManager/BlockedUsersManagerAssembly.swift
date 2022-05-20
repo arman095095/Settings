@@ -19,7 +19,7 @@ final class BlockedUsersManagerAssembly: Assembly {
                   let account = r.resolve(AccountModelProtocol.self),
                   let accountService = r.resolve(AccountNetworkServiceProtocol.self),
                   let cacheService = r.resolve(AccountCacheServiceProtocol.self),
-                  let profileService = r.resolve(ProfilesNetworkServiceProtocol.self) else {
+                  let profileService = r.resolve(ProfileInfoNetworkServiceProtocol.self) else {
                 fatalError(ErrorMessage.dependency.localizedDescription)
             }
             return BlockedUsersManager(account: account,

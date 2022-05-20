@@ -32,12 +32,12 @@ final class BlockedUsersManager {
     private let accountService: AccountNetworkServiceProtocol
     private let account: AccountModelProtocol
     private let cacheService: AccountCacheServiceProtocol
-    private let profileService: ProfilesNetworkServiceProtocol
+    private let profileService: ProfileInfoNetworkServiceProtocol
     
     init(account: AccountModelProtocol,
          accountID: String,
          accountService: AccountNetworkServiceProtocol,
-         profileService: ProfilesNetworkServiceProtocol,
+         profileService: ProfileInfoNetworkServiceProtocol,
          cacheService: AccountCacheServiceProtocol) {
         self.account = account
         self.accountID = accountID
