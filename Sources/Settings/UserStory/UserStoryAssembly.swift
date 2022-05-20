@@ -13,6 +13,7 @@ import UserStoryFacade
 public final class SettingsUserStoryAssembly: Assembly {
     public init() { }
     public func assemble(container: Container) {
+        AccountNetworkServiceAssembly().assemble(container: container)
         ProfileInfoNetworkServiceAssembly().assemble(container: container)
         BlockedUsersManagerAssembly().assemble(container: container)
         AccountEscapingManagerAssembly().assemble(container: container)
