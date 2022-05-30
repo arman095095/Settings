@@ -14,13 +14,15 @@ final class AccountEscapingManagerAssembly: Assembly {
     func assemble(container: Container) {
         container.register(AccountEscapingManagerProtocol.self) { r in
             guard let quickAccessManager = r.resolve(QuickAccessManagerProtocol.self),
+                  let authService = r.resolve(AuthNetworkServiceProtocol.self),
                   let accountService = r.resolve(AccountNetworkServiceProtocol.self),
                   let userID = quickAccessManager.userID else {
                 fatalError(ErrorMessage.dependency.localizedDescription)
             }
             return AccountEscapingManager(accountID: userID,
                                           accountService: accountService,
-                                          quickAccessManager: quickAccessManager)
+                                          quickAccessManager: quickAccessManager,
+                                          authService: authService)
         }
     }
 }

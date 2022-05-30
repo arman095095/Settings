@@ -27,14 +27,17 @@ protocol AccountEscapingManagerProtocol {
 final class AccountEscapingManager {
     private let accountID: String
     private let accountService: AccountNetworkServiceProtocol
+    private let authService: AuthNetworkServiceProtocol
     private let quickAccessManager: QuickAccessManagerProtocol
     
     init(accountID: String,
          accountService: AccountNetworkServiceProtocol,
-         quickAccessManager: QuickAccessManagerProtocol) {
+         quickAccessManager: QuickAccessManagerProtocol,
+         authService: AuthNetworkServiceProtocol) {
         self.accountID = accountID
         self.quickAccessManager = quickAccessManager
         self.accountService = accountService
+        self.authService = authService
     }
 }
 
@@ -53,6 +56,7 @@ extension AccountEscapingManager: AccountEscapingManagerProtocol {
     public func signOut() {
         setOffline()
         quickAccessManager.clearAll()
+        authService.signOut { _ in }
     }
     
     private func setOffline() {

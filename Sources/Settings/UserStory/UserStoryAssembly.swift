@@ -13,6 +13,7 @@ import UserStoryFacade
 public final class SettingsUserStoryAssembly: Assembly {
     public init() { }
     public func assemble(container: Container) {
+        AuthNetworkServiceAssembly().assemble(container: container)
         AccountCacheServiceAssembly().assemble(container: container)
         AccountNetworkServiceAssembly().assemble(container: container)
         ProfileInfoNetworkServiceAssembly().assemble(container: container)
